@@ -1,0 +1,161 @@
+/* ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+   Design Tokens — Apple-grade dual-theme system
+   Dark mode DEFAULT · Light mode opt-in
+   ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ */
+
+@theme static {
+  /* ── Typography Scale (fluid) ── */
+  --text-xs: 0.75rem;
+  --text-sm: 0.8125rem;
+  --text-base: 0.875rem;
+  --text-md: 1rem;
+  --text-lg: 1.125rem;
+  --text-xl: 1.25rem;
+  --text-2xl: 1.5rem;
+  --text-display: clamp(1.75rem, 3vw + 0.5rem, 2.5rem);
+
+  /* ── Easings ── */
+  --ease-out: cubic-bezier(0.16, 1, 0.3, 1);
+  --ease-in: cubic-bezier(0.7, 0, 0.84, 0);
+  --ease-in-out: cubic-bezier(0.65, 0, 0.35, 1);
+
+  /* ── Fonts ── */
+  --font-sans: "Inter", ui-sans-serif, system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+  --font-mono: "SF Mono", ui-monospace, "Cascadia Code", monospace;
+
+  /* ── Radii ── */
+  --radius-sm: 8px;
+  --radius-md: 12px;
+  --radius-lg: 16px;
+  --radius-xl: 20px;
+  --radius-pill: 999px;
+
+  /* ── Semantic Colors (dark mode default via :root) ── */
+  --color-bg: var(--_bg);
+  --color-surface: var(--_surface);
+  --color-surface-elevated: var(--_surface-elevated);
+  --color-border: var(--_border);
+  --color-border-subtle: var(--_border-subtle);
+  --color-text-primary: var(--_text-primary);
+  --color-text-secondary: var(--_text-secondary);
+  --color-text-tertiary: var(--_text-tertiary);
+  --color-accent: var(--_accent);
+  --color-accent-hover: var(--_accent-hover);
+  --color-accent-soft: var(--_accent-soft);
+  --color-accent-text: var(--_accent-text);
+  --color-error: var(--_error);
+  --color-error-soft: var(--_error-soft);
+  --color-success: var(--_success);
+  --color-success-soft: var(--_success-soft);
+  --color-warning-soft: var(--_warning-soft);
+  --color-warning-text: var(--_warning-text);
+  --color-info-soft: var(--_info-soft);
+  --color-info-text: var(--_info-text);
+  --color-overlay: var(--_overlay);
+  --color-star: oklch(82% 0.17 85);
+  --color-star-inactive: var(--_star-inactive);
+  --color-focus: var(--_accent);
+
+  /* ── Shadows & Glass ── */
+  --shadow-sm: var(--_shadow-sm);
+  --shadow-md: var(--_shadow-md);
+  --shadow-lg: var(--_shadow-lg);
+  --glass-highlight: var(--_glass-highlight);
+  --glass-border: var(--_glass-border);
+}
+
+/* ── Spacing & Timing (non-color, shared) ── */
+:root {
+  --space-2xs: 4px;
+  --space-xs: 8px;
+  --space-sm: 12px;
+  --space-md: 16px;
+  --space-lg: 24px;
+  --space-xl: 32px;
+  --space-2xl: 48px;
+  --space-3xl: 64px;
+  --dur-fast: 120ms;
+  --dur-normal: 200ms;
+  --dur-slow: 350ms;
+  --container: 1080px;
+  --gutter: clamp(16px, 3vw, 32px);
+}
+
+/* ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+   DARK THEME (default)
+   ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ */
+:root,
+[data-theme="dark"] {
+  color-scheme: dark;
+
+  --_bg: oklch(10% 0.025 275);
+  --_surface: oklch(22% 0.025 275 / 0.34);
+  --_surface-elevated: oklch(28% 0.025 275 / 0.42);
+  --_border: oklch(100% 0 0 / 0.16);
+  --_border-subtle: oklch(100% 0 0 / 0.10);
+  --_glass-highlight: inset 0 1px 0 oklch(100% 0 0 / 0.28), inset 0 -1px 0 oklch(100% 0 0 / 0.06);
+  --_glass-border: oklch(100% 0 0 / 0.20);
+  --_text-primary: oklch(96% 0.005 270);
+  --_text-secondary: oklch(72% 0.01 270);
+  --_text-tertiary: oklch(55% 0.01 270);
+
+  --_accent: oklch(65% 0.22 275);
+  --_accent-hover: oklch(70% 0.22 275);
+  --_accent-soft: oklch(25% 0.08 275);
+  --_accent-text: oklch(80% 0.15 275);
+
+  --_error: oklch(65% 0.2 25);
+  --_error-soft: oklch(22% 0.06 25);
+  --_success: oklch(70% 0.17 150);
+  --_success-soft: oklch(22% 0.06 150);
+  --_warning-soft: oklch(24% 0.06 70);
+  --_warning-text: oklch(78% 0.12 70);
+  --_info-soft: oklch(22% 0.06 240);
+  --_info-text: oklch(75% 0.12 240);
+
+  --_star-inactive: oklch(32% 0.01 270);
+  --_overlay: oklch(0% 0 0 / 0.6);
+
+  --_shadow-sm: 0 1px 2px oklch(0% 0 0 / 0.3);
+  --_shadow-md: 0 4px 12px oklch(0% 0 0 / 0.3);
+  --_shadow-lg: 0 8px 24px oklch(0% 0 0 / 0.4);
+}
+
+/* ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+   LIGHT THEME
+   ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ */
+[data-theme="light"] {
+  color-scheme: light;
+
+  --_bg: oklch(95% 0.015 275);
+  --_surface: oklch(100% 0 0 / 0.38);
+  --_surface-elevated: oklch(100% 0 0 / 0.52);
+  --_border: oklch(0% 0 0 / 0.10);
+  --_border-subtle: oklch(0% 0 0 / 0.06);
+  --_glass-highlight: inset 0 1px 0 oklch(100% 0 0 / 0.92), inset 0 -1px 0 oklch(100% 0 0 / 0.35);
+  --_glass-border: oklch(100% 0 0 / 0.72);
+  --_text-primary: oklch(15% 0.02 270);
+  --_text-secondary: oklch(42% 0.015 270);
+  --_text-tertiary: oklch(60% 0.01 270);
+
+  --_accent: oklch(52% 0.24 275);
+  --_accent-hover: oklch(47% 0.24 275);
+  --_accent-soft: oklch(93% 0.06 275);
+  --_accent-text: oklch(45% 0.2 275);
+
+  --_error: oklch(55% 0.22 25);
+  --_error-soft: oklch(95% 0.04 25);
+  --_success: oklch(55% 0.18 150);
+  --_success-soft: oklch(95% 0.04 150);
+  --_warning-soft: oklch(95% 0.05 70);
+  --_warning-text: oklch(42% 0.1 70);
+  --_info-soft: oklch(95% 0.04 240);
+  --_info-text: oklch(42% 0.1 240);
+
+  --_star-inactive: oklch(88% 0.008 270);
+  --_overlay: oklch(0% 0 0 / 0.3);
+
+  --_shadow-sm: 0 1px 3px oklch(0% 0 0 / 0.06), 0 1px 2px oklch(0% 0 0 / 0.04);
+  --_shadow-md: 0 4px 12px oklch(0% 0 0 / 0.08), 0 2px 4px oklch(0% 0 0 / 0.04);
+  --_shadow-lg: 0 8px 24px oklch(0% 0 0 / 0.1), 0 4px 8px oklch(0% 0 0 / 0.05);
+}

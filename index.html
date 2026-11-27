@@ -1,0 +1,57 @@
+<!doctype html>
+<html lang="en" data-theme="dark">
+  <head>
+    <meta charset="UTF-8" />
+    <link rel="icon" type="image/png" href="/favicon.png" />
+    <link rel="apple-touch-icon" href="/logo.png" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=5.0, viewport-fit=cover" />
+    <meta name="mobile-web-app-capable" content="yes" />
+    <meta name="apple-mobile-web-app-capable" content="yes" />
+    <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent" />
+    <meta name="theme-color" content="#1a1a2e" media="(prefers-color-scheme: dark)" />
+    <meta name="theme-color" content="#f8f8fa" media="(prefers-color-scheme: light)" />
+    <meta name="description" content="Share your shopping experience and review Modern Electronics Mukerian, Punjab. Fast, guided customer feedback kiosk." />
+    <meta name="keywords" content="Modern Electronics, Mukerian, electronics store reviews, customer feedback, appliances Mukerian" />
+    <meta property="og:title" content="Modern Electronics: Share Your Experience" />
+    <meta property="og:description" content="Share your verified customer review for Modern Electronics, Mukerian." />
+    <meta property="og:image" content="/logo.png" />
+    <meta property="og:type" content="website" />
+    <meta name="twitter:card" content="summary" />
+    <meta name="twitter:title" content="Modern Electronics: Share Your Experience" />
+    <meta name="twitter:description" content="Share your shopping experience at Modern Electronics, Mukerian." />
+    <meta name="twitter:image" content="/logo.png" />
+    <title>Modern Electronics: Share Your Experience</title>
+
+    <!-- Prevent FOUC: apply stored theme before first paint -->
+    <script>
+      (function() {
+        var t = localStorage.getItem('me_theme');
+        if (t === 'light') document.documentElement.setAttribute('data-theme', 'light');
+      })();
+    </script>
+
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet" />
+
+    <script type="application/ld+json">
+      {
+        "@context": "https://schema.org",
+        "@type": "ElectronicsStore",
+        "name": "Modern Electronics",
+        "description": "Electronics and home appliance showroom in Mukerian, Punjab",
+        "address": {
+          "@type": "PostalAddress",
+          "addressLocality": "Mukerian",
+          "addressRegion": "Punjab",
+          "addressCountry": "IN"
+        },
+        "url": "https://modern-electronics.pages.dev"
+      }
+    </script>
+  </head>
+  <body>
+    <div id="root"></div>
+    <script type="module" src="/src/main.tsx"></script>
+  </body>
+</html>
